@@ -47,3 +47,16 @@ https://spring.io/guides/gs/serving-web-content/
 
 <br>
 
+## 빌드하기
+
+<img width="948" alt="image" src="https://github.com/proamateur92/exam/assets/68406448/39df6e7f-9a4e-452e-8538-e2f4042d837f">
+
+<br>
+1. 프로젝트 파일 경로 이동 <br>
+2. 빌드 파일 생성 gradlew  build <br>
+3. jar파일 경로 이동 cd build/libs <br>
+4. 실행 java -jar jar명 <br>
+<br>
+* gradlew clean build 빌드 파일 삭제 후 빌드
+
+<br>
