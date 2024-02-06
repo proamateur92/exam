@@ -1,4 +1,4 @@
-package example.exam.repository;
+package example.repository;
 
 import example.domains.Member;
 import example.repository.MemberRepository;

@@ -2,17 +2,20 @@ package example.service;
 
 import example.domains.Member;
 import example.repository.MemberRepository;
-import example.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
-    MemberRepository repository;
+    MemberRepository memberRepository;
 
-    public MemberService(MemberRepository repository) {
-        this.repository = repository;
+    @Autowired
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     /**
@@ -23,12 +26,12 @@ public class MemberService {
         // 중복 회원 이름 검증
         validateDuplicateMember(member);
 
-        repository.save(member);
+        memberRepository.save(member);
         return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
-        repository.findByName(member.getName())
+        memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
@@ -38,13 +41,13 @@ public class MemberService {
      * 전체회원 조회
      */
     public List<Member> findAllMember() {
-        return repository.findAll();
+        return memberRepository.findAll();
     }
 
     /**
      * 단일회원 조회
      */
     public Optional<Member> findOne(Long memberId) {
-        return repository.findById(memberId);
+        return memberRepository.findById(memberId);
     }
 }
