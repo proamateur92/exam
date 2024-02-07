@@ -1,4 +1,4 @@
-package example.service;
+package example.exam.service;
 
 import example.exam.domains.Member;
 import example.exam.repository.MemoryMemberRepository;
