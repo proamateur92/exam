@@ -1,14 +1,13 @@
-package example.service;
+package example.exam.service;
 
-import example.domains.Member;
-import example.repository.MemberRepository;
+import example.exam.domains.Member;
+import example.exam.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class MemberService {
 
     MemberRepository memberRepository;
