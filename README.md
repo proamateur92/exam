@@ -60,3 +60,31 @@ https://spring.io/guides/gs/serving-web-content/
 * gradlew clean build 빌드 파일 삭제 후 빌드
 
 <br>
+
+## 정적 컨텐츠 호출
+
+    static 이하에 생성된 정적 컨텐츠는 파일명으로 url호출 가능
+
+    static/hi-static.html 
+    ex) http://localhost:8080/hi-static.html
+
+<br>
+
+## MVC & 템플릿 엔진
+
+- MVC: Model(조작데이터), View(표출 페이지), Controller(url 맵핑 및 비즈니스 로직)
+- 템플릿 엔진을 사용하여 동적 데이터로 페이지에 출력 가능하다.
+
+```java
+// @RequestParam 내부의 문자열이 url의 쿼리스트링 key값을 의미
+// @RequestParam 옵션 값으로 required = false 하지 않으면 쿼리스트링 값이 null일 때 에러 발생
+String mvc-test (@RequestParam("쿼리스트링 키 값") String value, Model model) {
+
+    // model에 데이터 담기
+    model.attribute("key값", value);
+    
+    // ViewResolver를 통해 Model에 담긴 데이터를
+    // 템플릿 엔진에 담아 반환 - key값으로 value값을 가져올 수 있다.
+    return "반환할 페이지명";
+}
+```
